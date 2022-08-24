@@ -7,7 +7,6 @@ export default function Form(props) {
 	// Submit button click.
 	const handleSubmit = (event) => {
 		event.preventDefault();
-		console.log(input);
 
 		if (input.text)
 			props.onSubmit({

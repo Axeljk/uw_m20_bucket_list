@@ -14,8 +14,12 @@ export default function BucketItem(props) {
 	return (
 		<ul>
 			{ props.bucket.map((item, index) =>
-				<li key={item.id}>
-					{item.text}
+				<li key={index}>
+					<p data-key={item.id} onClick={props.completeBucketItem}>{item.text}</p>
+					<div className="icons">
+						<p data-key={item.id} onClick={props.editBucketItem}> ✏️</p>
+						<p data-key={item.id} onClick={props.removeBucketItem}> 🗑️</p>
+					</div>
 				</li>
 			)}
 		</ul>

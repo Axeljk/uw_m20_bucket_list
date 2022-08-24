@@ -11,20 +11,22 @@ export default function Bucket() {
 	const addBucketItem = (item) => {
 		setBucket(current => [...current, item]);
 	};
-	const removeBucketItem = (id) => {
-
+	const completeBucketItem = (event) => {
+		console.log("Bucket item " + event.target.dataset.key + " completed.");
 	};
-	const editBucketItem = (itemId, newValue) => {
-
-	}
-
+	const removeBucketItem = (event) => {
+		console.log("Bucket item " + event.target.dataset.key + " removed.");
+	};
+	const editBucketItem = (event, newValue) => {
+		console.log("Bucket item " + event.target.dataset.key + " edited.");
+	};
 
 	// What's rendered.
 	return (
 		<>
 			<h1>Bucket List</h1>
 			<Form onSubmit={addBucketItem} />
-			<BucketItem bucket={bucket} removeBucketItem={removeBucketItem} editBucketItem={editBucketItem} />
+			<BucketItem bucket={bucket} completeBucketItem={completeBucketItem} removeBucketItem={removeBucketItem} editBucketItem={editBucketItem} />
 		</>
 	);
 }
