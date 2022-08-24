@@ -12,13 +12,22 @@ export default function Bucket() {
 		setBucket(current => [...current, item]);
 	};
 	const completeBucketItem = (event) => {
-		console.log("Bucket item " + event.target.dataset.key + " completed.");
+		let completedItem = bucket.find(item => item.id == event.target.dataset.key);
+		completedItem.completed = true;
+		console.log("COMPLETED ITEM", completedItem);
+
+		setBucket(current => current.map(item => item.id == event.target.dataset.key ? completedItem : item));
+		console.log("BUCKET", bucket);
 	};
 	const removeBucketItem = (event) => {
 		setBucket(current => current.filter(item => item.id != event.target.dataset.key));
 	};
 	const editBucketItem = (event, newValue) => {
-		console.log("Bucket item " + event.target.dataset.key + " edited.");
+		console.log(newValue);
+		if (!newValue.text)
+			return;
+
+		setBucket(current => current.map(item => item.id == event.target.dataset.key ? newValue : item));
 	};
 
 	// What's rendered.

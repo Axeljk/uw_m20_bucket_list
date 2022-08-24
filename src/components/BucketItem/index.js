@@ -3,7 +3,8 @@ import React, { useState } from "react";
 export default function BucketItem(props) {
 	const [edit, setEdit] = useState({
 		id: null,
-		value: ""
+		value: "",
+		completed: false
 	});
 
 	// Submitting edited bucket item.
@@ -14,12 +15,16 @@ export default function BucketItem(props) {
 	return (
 		<ul>
 			{ props.bucket.map((item, index) =>
-				<li key={index}>
+				(!item.completed)
+				? <li key={index}>
 					<p data-key={item.id} onClick={props.completeBucketItem}>{item.text}</p>
 					<div className="icons">
 						<p data-key={item.id} onClick={props.editBucketItem}> ✏️</p>
-						<p data-key={item.id} onClick={props.removeBucketItem}> 🗑️</p>
+						<p data-key={item.id} onClick={submitUpdate}> 🗑️</p>
 					</div>
+				</li>
+				: <li key={index}>
+					<p data-key={item.id} onClick={props.completeBucketItem}>{item.text}</p>
 				</li>
 			)}
 		</ul>
