@@ -1,9 +1,7 @@
 import Bucket from "./components/Bucket";
 
-function App() {
+export default function App() {
 	return (
 		<Bucket />
 	);
-}
-
-export default App;
+};
