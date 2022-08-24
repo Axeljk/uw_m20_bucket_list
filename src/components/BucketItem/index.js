@@ -16,14 +16,14 @@ export default function BucketItem(props) {
 		<ul>
 			{ props.bucket.map((item, index) =>
 				(!item.completed)
-				? <li key={index}>
+				? <li key={index} className={`bucket-row ${item.eagerness}`}>
 					<p data-key={item.id} onClick={props.completeBucketItem}>{item.text}</p>
 					<div className="icons">
 						<p data-key={item.id} onClick={props.editBucketItem}> ✏️</p>
 						<p data-key={item.id} onClick={submitUpdate}> 🗑️</p>
 					</div>
 				</li>
-				: <li key={index}>
+				: <li key={index} className={`bucket-row complete ${item.eagerness}`}>
 					<p data-key={item.id} onClick={props.completeBucketItem}>{item.text}</p>
 				</li>
 			)}

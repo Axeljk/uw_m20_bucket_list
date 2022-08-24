@@ -1,7 +1,10 @@
 import Bucket from "./components/Bucket";
+import "./App.css";
 
 export default function App() {
 	return (
-		<Bucket />
+		<main>
+			<Bucket />
+		</main>
 	);
 };
