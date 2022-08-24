@@ -15,7 +15,7 @@ export default function Bucket() {
 		console.log("Bucket item " + event.target.dataset.key + " completed.");
 	};
 	const removeBucketItem = (event) => {
-		console.log("Bucket item " + event.target.dataset.key + " removed.");
+		setBucket(current => current.filter(item => item.id != event.target.dataset.key));
 	};
 	const editBucketItem = (event, newValue) => {
 		console.log("Bucket item " + event.target.dataset.key + " edited.");
