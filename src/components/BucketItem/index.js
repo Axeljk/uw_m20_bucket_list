@@ -8,14 +8,16 @@ export default function BucketItem(props) {
 
 	// Submitting edited bucket item.
 	const submitUpdate = (value) => {
-
+		//
 	};
 
 	return (
 		<ul>
-			<li>
-				Stuff
-			</li>
+			{ props.bucket.map((item, index) =>
+				<li key={item.id}>
+					{item.text}
+				</li>
+			)}
 		</ul>
 	);
 };

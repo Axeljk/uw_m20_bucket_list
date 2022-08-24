@@ -9,7 +9,7 @@ export default function Bucket() {
 
 	// Bucket item fuctions.
 	const addBucketItem = (item) => {
-
+		setBucket(current => [...current, item]);
 	};
 	const removeBucketItem = (id) => {
 
@@ -24,7 +24,6 @@ export default function Bucket() {
 		<>
 			<h1>Bucket List</h1>
 			<Form onSubmit={addBucketItem} />
-			<p>This is placeholder text.</p>
 			<BucketItem bucket={bucket} removeBucketItem={removeBucketItem} editBucketItem={editBucketItem} />
 		</>
 	);
